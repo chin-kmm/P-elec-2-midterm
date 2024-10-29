@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Oaisis</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding:auto;
+            flex-direction: column;
+            text-align: center;
+            background-image:url("coffee.jpg")
+        }
+
+        header, footer {
+            background-color:#FFECDO;
+            color:black;
+            text-align: center;
+            padding: 0;
+            width: 100%;
+            font-size: 20px;
+            padding-top: 30x;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            color:black;
+            z-index: 100;
+        }
+
+        .logo {
+            float: right;
+            margin-right: 1rem;
+        }
+        nav {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type:square;
+            padding:0 ;
+            display: inline-block;
+            color: blue;
+        }
+
+        nav ul li {
+            display: inline-block;
+            position: relative;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        nav ul li select {
+            
+            top: 100%;
+            left: 0;
+            width: 100%;
+        }
+
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #936748;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            height: 80%;
+            transition: left 0.3s;
+            padding-top: 60px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Sidebar Form Styles */
+        .sidebar form {
+            padding: 20px;
+            color: white;
+        }
+
+        .sidebar form input[type="text"], .sidebar form input[type="email"], .sidebar form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .sidebar form input[type="submit"] {
+            width: 95%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Menu button styles */
+        .menu-button {
+            position: fixed;
+            top:10px;
+            left: 15px;
+            background-color: #A47F66;
+            color: white;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 100;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .content {
+            padding: 180px 20px;
+            margin-left: 20px;
+            color:black;
+            font-text:arialblack;
+            font-size:22px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav ul li {
+                display: inline-block;
+                margin-right: 0;
+                margin-bottom: .5px;
+                margin-top: 30px;
+                width:80px;
+            }
+
+            nav ul li select {
+                width: 100%;
+            }
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with logo and navigation -->
+    <header>
+        <img src="logo.jpg" alt="Logo" class="logo" width="60" height="60">
+    </header>
+       <nav>
+            <ul>
+                <li><a href="#home"></a>
+                    <select>
+                        <option selected>Home</option>
+                        <option>Menu</option>
+                        <option>Location</option>
+                        <option>Contact</option>
+                    </select>
+                </li>
+                <li><a href="#about"></a>
+                    <select>
+                        <option selected>About</option>
+                        <option>Our Story</option>
+                        <option>Our Coffee</option>
+                        <option>Our Menu</option>
+                    </select>
+                </li>
+                <li><a href="#services"></a>
+                    <select>
+                        <option selected>Services</option>
+                        <option>Coffee & Tea</option>
+                        <option>Food & Snacks</option>
+                        <option>Catering</option>
+                    </select>
+                
+                </li>
+               
+            </ul>
+        </nav>
+    
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <h2>Register</h2>
+        <form action="#">
+            <input type="text" name="fullname" placeholder="Full Name" required><br>
+            <input type="email" name="email" placeholder="Email Address" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Register">
+        </form>
+
+        
+    </div>
+
+    <!-- Menu button to toggle sidebar -->
+    <button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
+    <!-- Main content -->
+    <div class="content">
+        <h1>Welcome to Coffee Oasis</h1>
+        <p>Your Daily Escape</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>&copy; 2024 Coffee Oasis . All Rights Reserved.</strong></p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
